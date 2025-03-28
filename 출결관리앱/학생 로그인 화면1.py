@@ -94,7 +94,21 @@ class MainWindow(QMainWindow):
 
         return isSucceed  # 로그인 성공 여부 반환
 
-# 프로그램 실행 진입점
+    def btnLogClick(self):
+        self.studentlogin_window = StudentloginWindow()
+        self.studentlogin_window.show()
+        self.close()
+
+class StudentloginWindow(QMainWindow):
+    def __init__(self):
+        super(StudentloginWindow, self).__init__()
+        self.initUI()
+
+    def initUI(self):
+        uic.loadUi('./teamproject/로그인 방식.ui', self)
+        self.setWindowTitle('로그인 방식')
+
+        # 프로그램 실행 진입점
 if __name__ == '__main__':
     app = QApplication(sys.argv)  # QApplication 객체 생성
     win = MainWindow()  # MainWindow 객체 생성
