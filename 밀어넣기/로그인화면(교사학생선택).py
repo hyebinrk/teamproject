@@ -21,13 +21,13 @@ class MainWindow(QMainWindow):
         self.initUI()
     
     def initUI(self):
-        uic.loadUi('./teamproject/로그인화면.ui', self)
+        uic.loadUi('./LoginSelect.ui', self)
         self.setWindowTitle('출결체크')
-        self.setWindowIcon(QIcon('./teamproject/image/kitty.png'))
+        self.setWindowIcon(QIcon('./image/kitty.png'))
 
         # 버튼 아이콘 추가
-        self.btnTeacherSelect.setIcon(QIcon('./teamproject/image/teacher.png'))
-        self.btnStudentSelect.setIcon(QIcon('./teamproject/image/student.png'))
+        self.btnTeacherSelect.setIcon(QIcon('./image/teacher.png'))
+        self.btnStudentSelect.setIcon(QIcon('./image/student.png'))
         
         # 버튼 이벤트 추가
         self.btnTeacherSelect.clicked.connect(self.btnTeacherClick)
@@ -44,25 +44,25 @@ class MainWindow(QMainWindow):
         self.studentlogin_window.show()
         self.close()
 
-class TeacherloginWindow(QMainWindow):
-    def __init__(self):
-        super(TeacherloginWindow, self).__init__()
-        self.initUI()
-        # self.loadData()
+# class TeacherloginWindow(QMainWindow):
+#     def __init__(self):
+#         super(TeacherloginWindow, self).__init__()
+#         self.initUI()
+#         # self.loadData()
     
-    def initUI(self):
-        uic.loadUi('./teamproject/t_login.ui', self)
-        self.setWindowTitle('교사 로그인')
+#     def initUI(self):
+#         uic.loadUi('./t_login.ui', self)
+#         self.setWindowTitle('교사 로그인')
 
-class StudentloginWindow(QMainWindow):
-    def __init__(self):
-        super(StudentloginWindow, self).__init__()
-        self.initUI()
-        # self.loadData()
+# class StudentloginWindow(QMainWindow):
+#     def __init__(self):
+#         super(StudentloginWindow, self).__init__()
+#         self.initUI()
+#         # self.loadData()
     
-    def initUI(self):
-        uic.loadUi('./teamproject/학생 로그인 화면.ui', self)
-        self.setWindowTitle('학생 로그인')
+#     def initUI(self):
+#         uic.loadUi('./학생 로그인 화면.ui', self)
+#         self.setWindowTitle('학생 로그인')
         
 
 if __name__ == '__main__':

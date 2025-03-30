@@ -72,13 +72,13 @@
    <property name="title">
     <string>마이페이지</string>
    </property>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="photo_label">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>20</x>
       <y>40</y>
-      <width>81</width>
-      <height>91</height>
+      <width>110</width>
+      <height>100</height>
      </rect>
     </property>
     <property name="text">
@@ -88,7 +88,7 @@
      <pixmap>../image/다운로드 (9).png</pixmap>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="btn_upload">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -124,7 +124,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_10">
+        <widget class="QLineEdit" name="std_name">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -148,7 +148,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_2">
+        <widget class="QLineEdit" name="std_id">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -172,7 +172,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_3">
+        <widget class="QLineEdit" name="std_pwd">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -196,10 +196,30 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_3">
+        <widget class="QComboBox" name="cmb_year">
          <item>
           <property name="text">
            <string/>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>2011</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>2010</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>2009</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>2008</string>
           </property>
          </item>
          <item>
@@ -455,7 +475,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_4">
+        <widget class="QComboBox" name="cmb_month">
          <item>
           <property name="text">
            <string/>
@@ -534,7 +554,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_5">
+        <widget class="QComboBox" name="cmb_day">
          <item>
           <property name="text">
            <string/>
@@ -722,7 +742,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_5">
+        <widget class="QLineEdit" name="std_tel">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -746,7 +766,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_6">
+        <widget class="QLineEdit" name="std_addr">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -770,7 +790,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox">
+        <widget class="QComboBox" name="std_grade">
          <item>
           <property name="text">
            <string/>
@@ -804,7 +824,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_2">
+        <widget class="QComboBox" name="cmb_class">
          <item>
           <property name="text">
            <string/>
@@ -873,7 +893,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_4">
+        <widget class="QLineEdit" name="std_number">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -897,30 +917,23 @@
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_11">
      <item>
-      <widget class="QPushButton" name="pushButton_8">
+      <widget class="QPushButton" name="btn_insert">
        <property name="text">
         <string>입력</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_7">
+      <widget class="QPushButton" name="btn_update">
        <property name="text">
         <string>수정</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_6">
+      <widget class="QPushButton" name="btn_delete">
        <property name="text">
         <string>삭제</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_4">
-       <property name="text">
-        <string>종료</string>
        </property>
       </widget>
      </item>
@@ -957,7 +970,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="lineEdit">
+      <widget class="QLineEdit" name="input_std_name">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -979,14 +992,14 @@
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="btn_search">
        <property name="text">
         <string>검색</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QPushButton" name="btn_show_all">
        <property name="text">
         <string>전체보기</string>
        </property>
@@ -995,7 +1008,7 @@
     </layout>
    </widget>
   </widget>
-  <widget class="QTableWidget" name="tableWidget">
+  <widget class="QTableWidget" name="btlstudent">
    <property name="geometry">
     <rect>
      <x>615</x>
@@ -1036,12 +1049,7 @@
    </column>
    <column>
     <property name="text">
-     <string>New Column</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>학년</string>
+     <string>반</string>
     </property>
    </column>
    <column>

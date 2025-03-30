@@ -7,7 +7,8 @@ import cx_Oracle as oci
 
 # DB 접속 정보
 sid = 'XE'
-host = '210.119.14.71'
+# host = '210.119.14.71'
+host = 'localhost'
 port = 1521
 username = 'attendance'
 password = '12345'
@@ -28,8 +29,8 @@ class CustomCalendar(QCalendarWidget):
             query = '''
                 SELECT ATD_DATE, STATUS, TO_CHAR(ATD_TIME, 'HH24:MI') 
                 FROM ATTENDANCE.ATD 
-                WHERE S_NO = 1 
-                AND EXTRACT(MONTH FROM ATD_DATE) = 2
+                WHERE S_NO = 3 
+                AND EXTRACT(MONTH FROM ATD_DATE) = 3
             '''
             cursor.execute(query)
             rows = cursor.fetchall()
@@ -70,7 +71,7 @@ class AttendanceApp(QMainWindow):
     def __init__(self):
         super().__init__()
         # uic.loadUi('./miniproject01/출석관리,통계.ui', self)
-        uic.loadUi('./teamproject/출석관리,통계.ui', self)
+        uic.loadUi('./AttendanceApp.ui', self)
 
 
         old_calendar = self.findChild(QCalendarWidget, "calendarWidget")

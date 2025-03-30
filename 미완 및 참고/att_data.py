@@ -1,8 +1,8 @@
 import cx_Oracle as oci
-from faker import Faker
+# from faker import Faker
 import random
 
-fake = Faker('ko-KR')
+# fake = Faker('ko-KR')
 
 sid = 'XE'
 host = '210.119.14.71'
