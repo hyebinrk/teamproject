@@ -30,29 +30,19 @@ class MainWindow(QMainWindow):
         self.btnStudentSelect.setIcon(QIcon('./image/student.png'))
         
         # 버튼 이벤트 추가
-        self.btnTeacherSelect.clicked.connect(self.btnTeacherClick)
-        self.btnStudentSelect.clicked.connect(self.btnStudentClick)
-        
-
-    def btnTeacherClick(self):
-        self.teacherlogin_window = TLoginWindow()
-        self.teacherlogin_window.show()
-        self.close()
-
-    def btnStudentClick(self):
-        self.studentlogin_window = SLoginWindow()
-        self.studentlogin_window.show()
-        self.close()
+        self.btnTeacherSelect.clicked.connect(self.TLoginWindow)
+        self.btnStudentSelect.clicked.connect(self.SLoginWindow)
 
     
     def TLoginWindow(self):
         from t_login import MainWindow as TLoginWindow
         self.my_page = TLoginWindow()  
         self.my_page.show() 
+        self.close()
 
     def SLoginWindow(self):
-        from TAtd_chk import TAtdMainWindow as CheckWindow  # check.py에서 MainWindow 가져오기
-        self.check_window = CheckWindow(t_id)  # T_ID 전달
+        from s_login import MainWindow  # SAtdMainWindow.py에서 SAtd_chk 가져오기
+        self.check_window = MainWindow()  
         self.check_window.show()  # 출결 체크 창 열기
         self.close()  # 현재 창 닫기
 

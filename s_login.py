@@ -17,6 +17,7 @@ username = 'attendance'  # 데이터베이스 사용자 이름
 password = '12345'  # 데이터베이스 비밀번호
 basic_msg = 'OO고등학교 출결관리앱 v1.0'
 
+# 학생 로그인 화면
 # 메인 윈도우 클래스 정의
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -45,7 +46,7 @@ class MainWindow(QMainWindow):
         S_ID = self.input_S_ID.text()
         S_PW = self.input_S_PW.text()
 
-        self.S_ID = self.input_S_ID.text() # 로그인한 ID 변수값에 저장 
+        # self.S_ID = self.input_S_ID.text() # 로그인한 ID 변수값에 저장 
 
         if S_ID == '' or S_PW == '':
             QMessageBox.warning(self, '경고', '학번 또는 비밀번호 입력은 필수입니다!')
@@ -55,10 +56,16 @@ class MainWindow(QMainWindow):
             values = (S_ID, S_PW)
             if self.addData(values) == True:
                 QMessageBox.about(self, '로그인 성공!', '어서오세요!')
-                self.studentAttendanceWindow()
+                self.studentAttendanceWindow(values[0])
             else:
                 QMessageBox.about(self, '로그인 실패!', '로그인 실패, 관리자에게 문의하세요.')
         self.clearInput()
+
+    def studentAttendanceWindow(self, s_id):
+        from SAtd_chk import SAtdMainWindow
+        self.studentlogin_window = SAtdMainWindow(s_id)
+        self.studentlogin_window.show()
+        self.close()  # 현재 창을 닫기
 
     # 데이터베이스에서 로그인 정보 확인 함수
     def addData(self, values):
@@ -87,12 +94,7 @@ class MainWindow(QMainWindow):
 
         return isSucceed
     
-    def studentAttendanceWindow(self):
-        from SAtd_chk import SAtdMainWindow
-        self.studentlogin_window = SAtdMainWindow(self.s_ID)
-        self.studentlogin_window.show()
-
-
+    
 # 프로그램 실행 진입점
 if __name__ == '__main__':
     app = QApplication(sys.argv)
