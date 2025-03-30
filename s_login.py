@@ -88,9 +88,10 @@ class MainWindow(QMainWindow):
         return isSucceed
     
     def studentAttendanceWindow(self):
-        self.studentlogin_window = StudentloginWindow(self.s_ID)
+        from SAtd_chk import SAtdMainWindow
+        self.studentlogin_window = SAtdMainWindow(self.s_ID)
         self.studentlogin_window.show()
-        self.close()  # 현재 창을 닫기
+
 
 # 프로그램 실행 진입점
 if __name__ == '__main__':
