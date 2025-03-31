@@ -19,7 +19,7 @@ class MypageWindow(QDialog):
         self.initUI()
     
     def initUI(self):
-        uic.loadUi('./mypage.ui', self)
+        uic.loadUi('./teamproject/mypage.ui', self)
         self.setWindowTitle('마이페이지')
 
         # 테이블 위젯이 UI에 존재하는지 확인

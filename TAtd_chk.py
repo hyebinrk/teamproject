@@ -28,7 +28,7 @@ class TAtdMainWindow(QMainWindow):
     # UI 초기화 함수
     def initUI(self):
         # UI 파일 로드
-        uic.loadUi('./TAtd_chk.ui', self)
+        uic.loadUi('./teamproject/TAtd_chk.ui', self)
         self.setWindowTitle('교사용 출결 체크')  # 윈도우 제목 설정
         
 

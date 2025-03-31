@@ -25,7 +25,7 @@ class MainWindow(QMainWindow):
     # UI 초기화 함수
     def initUI(self):
         # UI 파일 로드
-        uic.loadUi('./t_login.ui', self)
+        uic.loadUi('./teamproject/t_login.ui', self)
         self.setWindowTitle('교사용 로그인')  # 윈도우 제목 설정
 
         # 로그인 버튼 클릭 시그널 연결

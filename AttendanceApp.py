@@ -71,7 +71,7 @@ class AttendanceApp(QMainWindow):
     def __init__(self):
         super().__init__()
         # uic.loadUi('./miniproject01/출석관리,통계.ui', self)
-        uic.loadUi('./AttendanceApp.ui', self)
+        uic.loadUi('./teamproject/AttendanceApp.ui', self)
 
 
         old_calendar = self.findChild(QCalendarWidget, "calendarWidget")
