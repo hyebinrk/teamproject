@@ -137,9 +137,9 @@ class SAtdMainWindow(QMainWindow):
                 s_no = result[0]  # s_no 값 추출
 
                 query = """UPDATE atd
-                        SET return_time = CAST(SYSTIMESTAMP AT TIME ZONE 'UTC' AS TIMESTAMP WITH TIME ZONE) AT TIME ZONE 'Asia/Seoul'
+                        SET in_time = CAST(SYSTIMESTAMP AT TIME ZONE 'UTC' AS TIMESTAMP WITH TIME ZONE) AT TIME ZONE 'Asia/Seoul'
                         WHERE s_no = :s_no
-                        AND trunc(atd_date) = trunc(sysdate)"""
+                        AND trunc(out_time) = trunc(sysdate)"""
 
                 cursor.execute(query, {"s_no": s_no})
                 connection.commit()
