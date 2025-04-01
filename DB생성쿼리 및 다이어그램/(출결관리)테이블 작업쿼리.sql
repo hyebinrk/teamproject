@@ -7,7 +7,7 @@ ADD (
     in_time   TIMESTAMP DEFAULT SYSTIMESTAMP           -- 복귀 시간 (기본값: 현재 시간)
 );
 
-
+COMMIT;
 
 --class
 SELECT * FROM CLASS;
@@ -25,6 +25,8 @@ SELECT s_no, s_id, s_pw, s_name, s_birth, s_tel, s_addr, class_no
 INSERT INTO STUDENT
 	VALUES(STUDENT_S_NO_SEQ.nextval, '1', '12345', '학생', '2007-11-18', '010-0221-0221', '서울시 왕십리로 83-21', '01');
 
+COMMIT;
+
 --teacher
 SELECT * FROM teacher;
 
@@ -35,7 +37,7 @@ INSERT INTO teacher
 SELECT * FROM atd;
 
 INSERT INTO atd(atd_no, s_no, t_no)
-	values('1', '3', '2');
+	values('1', '2', '3');
 
 INSERT INTO atd(atd_no, s_no, t_no)
 	values('2', '8', '2');
@@ -75,6 +77,13 @@ UPDATE atd
 	SET in_time = SYSTIMESTAMP
 		WHERE s_no = 3
 			AND trunc(out_time) = trunc(sysdate) ; --변수1 값에 아이디 저장시키고 그에 해당하는 s_no을 찾아내 저장시킨 변수2가 s_id
+			
+--CHECK_ATTENDANCE
+SELECT * FROM check_attendance;
+
+INSERT INTO CHECK_ATTENDANCE(check_id, class_no, checkno, t_no)
+	VALUES(check_attendance_check_id_seq.nextval, '11', '0', '11');
+
 			
 
 COMMIT;

@@ -8,7 +8,8 @@ from PyQt5 import QtGui, QtWidgets,uic
 
 ## DB연결 설정
 sid = 'XE'
-host = 'localhost'
+# host = 'localhost'
+host = '210.119.14.71'
 port = 1521
 username = 'attendance'
 password = '12345'

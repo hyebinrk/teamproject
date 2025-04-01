@@ -76,7 +76,7 @@
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_3">
             <item>
-             <widget class="QLabel" name="num_chk">
+             <widget class="QLabel" name="atd_num_label">
               <property name="text">
                <string/>
               </property>

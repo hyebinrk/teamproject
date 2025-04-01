@@ -7,8 +7,8 @@ import cx_Oracle as oci
 
 # 데이터베이스 연결 정보
 sid = 'XE'  
-# host = '210.119.14.71'
-host = 'localhost'
+host = '210.119.14.71'
+# host = 'localhost'
 port = 1521  
 username = 'attendance'
 password = '12345'  
