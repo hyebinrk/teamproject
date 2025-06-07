@@ -8,8 +8,8 @@ import cx_Oracle as oci
 # DB 접속 정보
 sid = 'XE'
 host = '210.119.14.71'
-# host = 'localhost'
-port = 1521
+host = 'localhost'
+# port = 1521
 username = 'attendance'
 password = '12345'
 
@@ -19,7 +19,11 @@ class CustomCalendar(QCalendarWidget):
         super().__init__(parent)
         self.symbols = {}  
         self.setVerticalHeaderFormat(QCalendarWidget.NoVerticalHeader)
-        self.load_attendance_data()  
+        self.load_attendance_data()
+        
+
+    
+        
 
     def load_attendance_data(self):
         try:
@@ -42,9 +46,9 @@ class CustomCalendar(QCalendarWidget):
 
         except Exception as e:
             print("데이터베이스 오류:", e)
-        finally:
-            cursor.close()
-            conn.close()
+        # finally:
+            # cursor.close()
+            # conn.close()
 
     def paintCell(self, painter, rect, date):
         super().paintCell(painter, rect, date)
@@ -72,6 +76,8 @@ class AttendanceApp(QMainWindow):
         super().__init__()
         # uic.loadUi('./miniproject01/출석관리,통계.ui', self)
         uic.loadUi('./AttendanceApp.ui', self)
+        self.setWindowTitle('출결 관리')  # 윈도우 제목 설정 
+        self.setWindowIcon(QIcon('./image/atd.png')) 
 
 
         old_calendar = self.findChild(QCalendarWidget, "calendarWidget")

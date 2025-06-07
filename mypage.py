@@ -7,8 +7,8 @@ import cx_Oracle as oci
 
 # 데이터베이스 연결 정보
 sid = 'XE'  
-host = '210.119.14.71'
-# host = 'localhost'
+# host = '210.119.14.71'
+host = 'localhost'
 port = 1521  
 username = 'attendance'
 password = '12345'  
@@ -17,6 +17,7 @@ class MypageWindow(QDialog):
     def __init__(self):
         super().__init__()
         self.initUI()
+        self.setWindowIcon(QIcon('./image/mypage'))
     
     def initUI(self):
         uic.loadUi('.//mypage.ui', self)
@@ -36,6 +37,15 @@ class MypageWindow(QDialog):
         self.btn_delete.clicked.connect(self.btnDeleteClick)
         self.btn_show_all.clicked.connect(self.loadData)
         self.btlstudent.cellDoubleClicked.connect(self.showStudentDetails)
+
+         # QLabel 객체 가져오기
+        self.photo_label = self.findChild(QLabel, 'photo_label')
+
+        # QLabel에 이미지 설정
+        pixmap = QPixmap('./image/profile.png')  # 이미지 파일 경로
+        self.photo_label.setPixmap(pixmap)  # QLabel에 이미지 설정        
+        self.photo_label.setFixedSize(110,110)  # 이미지 크기 수동 설정
+        self.photo_label.setPixmap(pixmap.scaled(self.photo_label.size(), Qt.KeepAspectRatio))
         
 
         # 데이터 불러오기

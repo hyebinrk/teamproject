@@ -82,7 +82,13 @@ UPDATE atd
 SELECT * FROM check_attendance;
 
 INSERT INTO CHECK_ATTENDANCE(check_id, class_no, checkno, t_no)
-	VALUES(check_attendance_check_id_seq.nextval, '11', '0', '11');
+	VALUES(check_attendance_check_id_seq.nextval, '1', '0', '2');
+
+ALTER TABLE ATD ADD CHECKNO VARCHAR2(20); -- ATD테이블에 CHECKNO 컬럼 생성
+
+
+ALTER TABLE TEACHER ADD S_NO number;  -- TEACHER체이블에 S_NO 컬럼 생성 // 했는데 필요없었던거임....
+
 
 			
 

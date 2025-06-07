@@ -9,10 +9,12 @@ from PyQt5 import QtGui, QtWidgets, uic
 # Oracle 데이터베이스 연결을 위한 cx_Oracle 모듈 임포트
 import cx_Oracle as oci
 
+from PyQt5.QtCore import Qt # 이미지를 크기 조정할 때 원본의 비율을 유지하도록 지정
+
 # Oracle 데이터베이스 연결 정보 설정
 sid = 'XE'  # 데이터베이스 SID
-# host = 'localhost'  # 데이터베이스 호스트 주소 (외부 접속 시 변경 필요)
-host = '210.119.14.71'
+host = 'localhost'  # 데이터베이스 호스트 주소 (외부 접속 시 변경 필요)
+# host = '210.119.14.71'
 port = 1521  # 데이터베이스 포트 번호
 username = 'attendance'  # 데이터베이스 사용자 이름
 password = '12345'  # 데이터베이스 비밀번호
@@ -30,6 +32,32 @@ class SAtdMainWindow(QMainWindow):
         uic.loadUi('.//SAtd_chk.ui', self)
         self.setWindowTitle('학생용출결체크')
         self.setWindowIcon(QIcon('.//image/app01.png'))
+
+        # QLabel 객체 가져오기
+        self.LabelAtdcheck = self.findChild(QLabel, 'LabelAtdcheck')
+        self.LabelMypage = self.findChild(QLabel, 'LabelMypage') 
+        self.LabelAtdMgmt = self.findChild(QLabel, 'LabelAtdMgmt') 
+        
+        # QLabel에 이미지 설정
+        pixmap = QPixmap('./image/atdnum.png')  # 이미지 파일 경로
+        self.LabelAtdcheck.setPixmap(pixmap)  # QLabel에 이미지 설정
+        self.LabelAtdcheck.setAlignment(Qt.AlignCenter)
+        scaled_pixmapatdnum = pixmap.scaled(self.LabelAtdcheck.size(), Qt.KeepAspectRatio, Qt.SmoothTransformation)
+        self.LabelAtdcheck.setPixmap(scaled_pixmapatdnum)
+        
+        pixmap = QPixmap('./image/mypage.png')  # 이미지 파일 경로
+        self.LabelMypage.setPixmap(pixmap)  # QLabel에 이미지 설정
+        self.LabelMypage.setAlignment(Qt.AlignCenter)
+        scaled_pixmapmypage = pixmap.scaled(110, 110, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+        self.LabelMypage.setPixmap(scaled_pixmapmypage)
+        # scaled_pixmapmypage = pixmap.scaled(self.LabelMypage.size(), Qt.KeepAspectRatio, Qt.SmoothTransformation)
+        # self.LabelMypage.setPixmap(scaled_pixmapmypage)
+        
+        pixmap = QPixmap('./image/atd.png')  # 이미지 파일 경로
+        self.LabelAtdMgmt.setPixmap(pixmap)  # QLabel에 이미지 설정
+        self.LabelAtdMgmt.setAlignment(Qt.AlignCenter)
+        scaled_pixmapatdMgmt = pixmap.scaled(110, 110, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+        self.LabelAtdMgmt.setPixmap(scaled_pixmapatdMgmt)
         
         self.btn_my.clicked.connect(self.MypageWindow)
         self.btn_atd.clicked.connect(self.MgmtAtdWindow)

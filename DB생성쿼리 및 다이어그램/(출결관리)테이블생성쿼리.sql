@@ -58,6 +58,8 @@ CREATE TABLE check_attendance (
     CONSTRAINT fk_check_teacher FOREIGN KEY (t_no) REFERENCES teacher(t_no)
 );
 
+
+
 CREATE OR REPLACE TRIGGER set_atd_status
 BEFORE INSERT ON atd
 FOR EACH ROW

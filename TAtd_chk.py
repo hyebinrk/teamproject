@@ -5,14 +5,16 @@ from PyQt5.QtGui import *
 from PyQt5 import QtWidgets, QtGui, uic
 from PyQt5 import uic
 from PyQt5.QtGui import QPixmap  # QPixmap 모듈 추가
+from PyQt5.QtCore import Qt # 이미지를 크기 조정할 때 원본의 비율을 유지하도록 지정
+
 
 # Oracle 데이터베이스 연결을 위한 cx_Oracle 모듈 임포트
 import cx_Oracle as oci
 
 # Oracle 데이터베이스 연결 정보 설정
 sid = 'XE'  # 데이터베이스 SID
-host = '210.119.14.71'  # 데이터베이스 호스트 주소 (외부 접속 시 변경 필요)
-# host = 'localhost'
+# host = '210.119.14.71'  # 데이터베이스 호스트 주소 (외부 접속 시 변경 필요)
+host = 'localhost'
 port = 1521  # 데이터베이스 포트 번호
 username = 'attendance'  # 데이터베이스 사용자 이름
 password = '12345'  # 데이터베이스 비밀번호
@@ -24,6 +26,7 @@ class TAtdMainWindow(QMainWindow):
         self.t_id = t_id  # 로그인한 T_ID 저장
         self.initUI()  # UI 초기화 함수 호출
         self.generated_numbers = set()  # 생성된 숫자를 저장할 집합 초기화
+        self.setWindowIcon(QIcon('./image/kitty.png'))
 
     # UI 초기화 함수
     def initUI(self):
@@ -33,18 +36,30 @@ class TAtdMainWindow(QMainWindow):
         
 
          # QLabel 객체 가져오기
-        self.num_chk_label = self.findChild(QLabel, 'num_chk')
+        self.atd_num_label = self.findChild(QLabel, 'atd_num_label')
         self.my_page_label = self.findChild(QLabel, 'my_page') 
         self.my_atd_label = self.findChild(QLabel, 'my_atd') 
 
         # QLabel에 이미지 설정
-        pixmap = QPixmap('./images/mypage.png')  # 이미지 파일 경로
-        self.my_page_label.setPixmap(pixmap)  # QLabel에 이미지 설정
-        self.my_page_label.setScaledContents(True)  # 이미지가 QLabel 크기에 맞게 조정되도록 설정
+        pixmap = QPixmap('./image/atdnum.png')  # 이미지 파일 경로
+        self.atd_num_label.setPixmap(pixmap)  # QLabel에 이미지 설정
+        # self.atd_num_label.setScaledContents(True)  # 이미지가 QLabel 크기에 맞게 조정되도록 설정
+        self.atd_num_label.setFixedSize(110,110)  # 이미지 크기 수동 설정
+        self.atd_num_label.setPixmap(pixmap.scaled(self.atd_num_label.size(), Qt.KeepAspectRatio))
 
-        pixmap = QPixmap('./images/atd.png')  # 이미지 파일 경로
+
+        pixmap = QPixmap('./image/mypage.png')  # 이미지 파일 경로
+        self.my_page_label.setPixmap(pixmap)  # QLabel에 이미지 설정
+        # self.my_page_label.setScaledContents(True)  # 이미지가 QLabel 크기에 맞게 조정되도록 설정
+        self.my_page_label.setFixedSize(130,130)  # 이미지 크기 수동 설정
+        self.my_page_label.setPixmap(pixmap.scaled(self.my_page_label.size(), Qt.KeepAspectRatio))
+
+        pixmap = QPixmap('./image/atd.png')  # 이미지 파일 경로
         self.my_atd_label.setPixmap(pixmap)  # QLabel에 이미지 설정
-        self.my_atd_label.setScaledContents(True)  # 이미지가 QLabel 크기에 맞게 조정되도록 설정
+        # self.my_atd_label.setScaledContents(True)  # 이미지가 QLabel 크기에 맞게 조정되도록 설정
+        self.my_atd_label.setFixedSize(130,130)  # 이미지 크기 수동 설정
+        self.my_atd_label.setPixmap(pixmap.scaled(self.my_atd_label.size(), Qt.KeepAspectRatio))
+
 
         # 출결번호 생성 버튼 클릭 시그널 연결
         self.btn_chk.clicked.connect(self.numchkClick)
