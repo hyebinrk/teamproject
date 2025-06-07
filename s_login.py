@@ -27,9 +27,9 @@ class MainWindow(QMainWindow):
 
     # UI 초기화 함수
     def initUI(self):
-        uic.loadUi('./teamproject/s_login.ui', self)
+        uic.loadUi('.//s_login.ui', self)
         self.setWindowTitle('학생용 로그인')  # 윈도우 제목 설정
-        self.setWindowIcon(QIcon('./teamproject/image/app01.png'))
+        self.setWindowIcon(QIcon('.//image/app01.png'))
 
         # 로그인 버튼 클릭 시그널 연결
         self.btn_login.clicked.connect(self.btnLogClick)

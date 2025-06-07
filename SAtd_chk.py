@@ -27,9 +27,9 @@ class SAtdMainWindow(QMainWindow):
         
 
     def initUI(self):
-        uic.loadUi('./teamproject/SAtd_chk.ui', self)
+        uic.loadUi('.//SAtd_chk.ui', self)
         self.setWindowTitle('학생용출결체크')
-        self.setWindowIcon(QIcon('./teamproject/image/app01.png'))
+        self.setWindowIcon(QIcon('.//image/app01.png'))
         
         self.btn_my.clicked.connect(self.MypageWindow)
         self.btn_atd.clicked.connect(self.MgmtAtdWindow)

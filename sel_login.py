@@ -22,13 +22,13 @@ class MainWindow(QMainWindow):
         self.initUI()
     
     def initUI(self):
-        uic.loadUi('./teamproject/sel_login.ui', self)
+        uic.loadUi('.//sel_login.ui', self)
         self.setWindowTitle('출결체크')
         self.setWindowIcon(QIcon('./image/kitty.png'))
 
         # 버튼 아이콘 추가
-        self.btnTeacherSelect.setIcon(QIcon('./teamproject/image/teacher.png'))
-        self.btnStudentSelect.setIcon(QIcon('./teamproject/image/student.png'))
+        self.btnTeacherSelect.setIcon(QIcon('.//image/teacher.png'))
+        self.btnStudentSelect.setIcon(QIcon('.//image/student.png'))
         
         # 버튼 이벤트 추가
         self.btnTeacherSelect.clicked.connect(self.TLoginWindow)

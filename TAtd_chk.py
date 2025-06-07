@@ -28,7 +28,7 @@ class TAtdMainWindow(QMainWindow):
     # UI 초기화 함수
     def initUI(self):
         # UI 파일 로드
-        uic.loadUi('./teamproject/TAtd_chk.ui', self)
+        uic.loadUi('.//TAtd_chk.ui', self)
         self.setWindowTitle('교사용 출결 체크')  # 윈도우 제목 설정
         
 
@@ -38,11 +38,11 @@ class TAtdMainWindow(QMainWindow):
         self.my_atd_label = self.findChild(QLabel, 'my_atd') 
 
         # QLabel에 이미지 설정
-        pixmap = QPixmap('./teamproject/images/mypage.png')  # 이미지 파일 경로
+        pixmap = QPixmap('./images/mypage.png')  # 이미지 파일 경로
         self.my_page_label.setPixmap(pixmap)  # QLabel에 이미지 설정
         self.my_page_label.setScaledContents(True)  # 이미지가 QLabel 크기에 맞게 조정되도록 설정
 
-        pixmap = QPixmap('./teamproject/images/atd.png')  # 이미지 파일 경로
+        pixmap = QPixmap('./images/atd.png')  # 이미지 파일 경로
         self.my_atd_label.setPixmap(pixmap)  # QLabel에 이미지 설정
         self.my_atd_label.setScaledContents(True)  # 이미지가 QLabel 크기에 맞게 조정되도록 설정
 

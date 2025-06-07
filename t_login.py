@@ -10,8 +10,8 @@ import cx_Oracle as oci
 
 # Oracle 데이터베이스 연결 정보 설정
 sid = 'XE'  # 데이터베이스 SID
-host = '210.119.14.71'  # 데이터베이스 호스트 주소 (외부 접속 시 변경 필요)
-# host = 'localhost'
+# host = '210.119.14.71'  # 데이터베이스 호스트 주소 (외부 접속 시 변경 필요)
+host = 'localhost'
 port = 1521  # 데이터베이스 포트 번호
 username = 'attendance'  # 데이터베이스 사용자 이름
 password = '12345'  # 데이터베이스 비밀번호
@@ -25,8 +25,9 @@ class MainWindow(QMainWindow):
     # UI 초기화 함수
     def initUI(self):
         # UI 파일 로드
-        uic.loadUi('./teamproject/t_login.ui', self)
+        uic.loadUi('.//t_login.ui', self)
         self.setWindowTitle('교사용 로그인')  # 윈도우 제목 설정
+        self.setWindowIcon(QIcon('./image/kitty.png'))
 
         # 로그인 버튼 클릭 시그널 연결
         self.btn_login.clicked.connect(self.btnAddClick)
