@@ -1,4 +1,4 @@
-[로그인 선택 화면]
+[로그인 선택 화면]<br>
 ![alt text](/image/로그인선택.png)<br><br>
 
 [교사용 로그인 선택]
@@ -34,7 +34,16 @@
 ![alt text](/image/학생로그인성공.png)<br><br>
 
 [학생용 로그인 진입]
-![alt text](/image/학생로그인진입.png)<br><br>
+![alt text](/image/학생로그인진입.png)
+조퇴, 외출, 복귀를 누르면 각각 컬럼에 담겨 출결확인 페이지에 출력되도록 반영
+![alt text](/image/외출버튼코드.png)<br><br>
+
+[마이페이지]
+![alt text](/image/마이페이지.png)<br><br>
+
+[출결확인]
+[교사용 로그인 - 출결관리]
+![alt text](/image/출결관리.png)<br><br>
 
 
 
