@@ -42,7 +42,6 @@
 ![alt text](/image/마이페이지.png)<br><br>
 
 [출결확인]
-[교사용 로그인 - 출결관리]
 ![alt text](/image/출결관리.png)<br><br>
 
 
